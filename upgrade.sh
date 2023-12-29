@@ -18,6 +18,7 @@ sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
 sed -i 's/bullseye-updates/bookworm-updates/g' /etc/apt/sources.list
 sed -i 's/bullseye-backports/bookworm-backports/g' /etc/apt/sources.list
 sed -i 's/bullseye-security/bookworm-security/g' /etc/apt/sources.list
+sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list.d/*.list
 
 # Mettre à jour la liste des paquets
 echo "Mise à jour de la liste des paquets avec les nouveaux dépôts Debian Bookworm..."
