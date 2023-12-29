@@ -27,25 +27,15 @@ apt update
 echo "Simulation de la mise à niveau pour détecter les problèmes potentiels..."
 apt -s dist-upgrade
 
-# Demander une confirmation pour continuer
-read -p "Voulez-vous continuer avec la mise à niveau de Debian 11 à Debian 12? [y/N]" -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Démarrage de la mise à niveau vers Debian 12 (Bookworm)..."
-    apt -y full-upgrade
+apt -y full-upgrade
 
-    echo "Nettoyage des paquets obsolètes..."
-    apt -y autoremove
+echo "Nettoyage des paquets obsolètes..."
+apt -y autoremove
 
-    echo "La mise à niveau est terminée, un redémarrage est nécessaire."
-    read -p "Voulez-vous redémarrer maintenant ? [y/N]" -n 1 -r
-    echo
-    if [[ $REPLY =~ ^[Yy]$ ]]; then
-        echo "Redémarrage du système..."
-        shutdown -r now
-    else
-        echo "Redémarrage annulé. Veuillez redémarrer manuellement votre système plus tard."
-    fi
-else
-    echo "Mise à niveau annulée par l'utilisateur."
-fi
+echo "La mise à niveau est terminée, un redémarrage est nécessaire."
+
+
+echo "Redémarrage du système..."
+
+shutdown -r now
+
