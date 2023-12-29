@@ -27,10 +27,10 @@ apt update
 echo "Simulation de la mise à niveau pour détecter les problèmes potentiels..."
 apt -s dist-upgrade
 
-apt -y full-upgrade
+DEBIAN_FRONTEND=noninteractive apt -y full-upgrade
 
 echo "Nettoyage des paquets obsolètes..."
-apt -y autoremove
+DEBIAN_FRONTEND=noninteractive apt -y autoremove
 
 echo "La mise à niveau est terminée, un redémarrage est nécessaire."
 
